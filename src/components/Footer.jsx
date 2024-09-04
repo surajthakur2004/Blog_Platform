@@ -5,8 +5,8 @@ function Footer() {
   const { pageCount, totalPages, handlePageChanger } = useContext(AppContext);
 
   return (
-    <div>
-      <footer className="flex justify-evenly h-[3rem] bg-gray-300 pt-[8px] sticky bottom-0">
+    <div className="sticky bottom-0">
+      <footer className="flex justify-evenly h-[3rem] bg-gray-300 pt-[8px] ">
         <div className="">
           {pageCount > 1 && (
             <button

@@ -41,28 +41,30 @@ function BlogsPage() {
   }, [location.pathname]);
 
   return (
-    <div>
+    <div className="flex flex-col ">
       <Header />
 
-      <div>
+      <div className=" font-bold w-[5rem] bg-blue-500 p-[4px] rounded-xl text-center sticky top-14 ml-2">
         <button onClick={() => navigate(-1)}>Back</button>
       </div>
-
-      {loader ? (
-        <Spinner />
-      ) : blog ? (
-        <div>
-          <Card post={blog} />
-          <h1>Related Blogs</h1>
-          {relatedBlogs.map((post) => (
-            <Card key={post.id} post={post} />
-          ))}
-        </div>
-      ) : (
-        <div>
-          <p>No Blog Found!</p>
-        </div>
-      )}
+      <div className="flex flex-col items-center">
+        {loader ? (
+          <Spinner />
+        ) : blog ? (
+          <div className=" w-[45%] ">
+            <Card post={blog} />
+            <h1 className="font-bold text-[2rem]">Related Blogs</h1>{" "}
+            <hr className="border-2 border-black mb-3" />
+            {relatedBlogs.map((post) => (
+              <Card key={post.id} post={post} />
+            ))}
+          </div>
+        ) : (
+          <div>
+            <p>No Blog Found!</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
